@@ -2,6 +2,7 @@ package com.lx862.mozccaps;
 
 import com.lx862.mozccaps.data.Language;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.text.Text;
 
 public class AtamaInput {
     private static boolean inputEnabled = false;
@@ -51,7 +52,7 @@ public class AtamaInput {
     public static void sendMessage(MinecraftClient minecraft) {
         if(minecraft.player == null || inputted.startsWith("/") || inputted.trim().isEmpty()) return;
 
-        minecraft.player.networkHandler.sendChatMessage(inputted);
+        minecraft.player.sendChatMessage(inputted, null);
         inputted = "";
         inputEnabled = false;
     }
