@@ -9,9 +9,11 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroups;
 import org.lwjgl.glfw.GLFW;
 
 import java.util.HashMap;
@@ -33,6 +35,11 @@ public class MainClient implements ClientModInitializer {
 
 		WorldRenderEvents.BEFORE_ENTITIES.register(context -> {
 			updateCapPressedAnimation(context.tickDelta());
+		});
+
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(content -> {
+			content.add(Main.CAPS);
+			content.add(Main.CAPS_STRAPPED);
 		});
 	}
 

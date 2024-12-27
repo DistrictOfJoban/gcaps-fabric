@@ -52,7 +52,7 @@ public class AtamaInput {
     public static void sendMessage(MinecraftClient minecraft) {
         if(minecraft.player == null || inputted.startsWith("/") || inputted.trim().isEmpty()) return;
 
-        minecraft.player.sendChatMessage(inputted, null);
+        minecraft.player.sendMessage(Text.of(inputted), false);
         inputted = "";
         inputEnabled = false;
     }

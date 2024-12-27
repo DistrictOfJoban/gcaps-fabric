@@ -2,6 +2,7 @@ package com.lx862.mozccaps.armor;
 
 import com.lx862.mozccaps.Main;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
@@ -9,12 +10,12 @@ import net.minecraft.sound.SoundEvents;
 
 public class CapArmorMaterial implements ArmorMaterial {
     @Override
-    public int getDurability(EquipmentSlot slot) {
+    public int getDurability(ArmorItem.Type type) {
         return 13;
     }
 
     @Override
-    public int getProtectionAmount(EquipmentSlot slot) {
+    public int getProtection(ArmorItem.Type type) {
         return 1;
     }
 
